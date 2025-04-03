@@ -15,6 +15,9 @@ from ui.gui_pygame import launch_pygame_gui
 from distribution.rabbit_client import start_rabbitmq_messaging
 from performance.metrics import log_simulation_state
 
+#Qué definimos como tarea pesada, lugar en el que se ejecuta run_simulation_tasks, límite de vehículos y semáforos?
+#Las tareas o eventos se definen en el ThreadPoolExecutor o en función heavy_computation?
+
 
 def start_simulation(simulator, interval):
     asyncio.run(simulation_loop(simulator, interval))
