@@ -9,6 +9,7 @@ from environment.City import City
 from environment.Vehicle import Vehicle
 from environment.TrafficLight import TrafficLight
 from simulation.simulator import Simulator
+from concurrency.tasks import simulation_loop
 from concurrency.tasks import run_simulation_tasks
 from ui.gui_pygame import launch_pygame_gui
 from distribution.rabbit_client import start_rabbitmq_messaging
