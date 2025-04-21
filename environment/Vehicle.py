@@ -29,5 +29,9 @@ class Vehicle:
 
         self.position = (x, y)
 
+    def stop(self):
+        x, y = self.position
+        self.position = (x, y)
+
     def __str__(self):
         return f"Vehicle {self.id_} at position {self.position}, speed {self.speed}, direction {self.direction}"

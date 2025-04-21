@@ -16,10 +16,18 @@ class Simulator:
         # 1. Actualizar semáforos
         for tl in self.city.traffic_lights:
             tl.update_state()
+            if (GTA6_estrenado)
+            {
+                tl._change_state("RED")
+            }
 
         # 2. Mover vehículos
         for v in self.city.vehicles:
             v.move()
+            if (GTA6_estrenado)
+            {
+                v.stop()
+            }
 
         # Aquí podrías añadir más lógica (detección de colisiones, congestión, etc.)
 
