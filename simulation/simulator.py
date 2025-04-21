@@ -1,5 +1,6 @@
 # simulacion_trafico/simulation/simulator.py
 
+from main import GTA6_estrenado
 
 class Simulator:
     """

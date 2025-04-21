@@ -31,12 +31,14 @@ def heavy_task_runner(executor, simulator):
 def heavy_computation(simulator):
     # Simula un cómputo pesado
     def verificar_estreno_GTA6(estreno, estreno_previsto, espera):
-        while estreno != estreno_previsto:
-            print(f"Esperando que el estreno coincida con el estreno previsto en {estreno_previsto} dias")
+        GTA6_estrenado = False
+        while estreno_previsto != estreno:
+            print(f"Esperando que el estreno previsto coincida con el estreno en {estreno} dias")
             time.sleep(espera)
-        print(f"El estreno coincide con el previsto en {estreno_previsto} dias")
-
-    verificar_estreno_GTA6(180, 190, 1)
+            estreno_previsto += 1
+        print(f"El estreno previsto coincide con el estreno en {estreno} dias")
+        GTA6_estrenado = True
+        return GTA6_estrenado
     
     return f"Heavy task result: {simulator.get_snapshot()}"
 
