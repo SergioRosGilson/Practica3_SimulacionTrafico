@@ -40,6 +40,16 @@ def heavy_computation(simulator):
         GTA6_estrenado = True
         return GTA6_estrenado
     
+    def verificar_dia_opuesto(fecha_actual, fecha_celebracion, espera):
+        dia_opuesto = False
+        while fecha_celebracion != fecha_actual:
+            print(f"Esperando que la fecha actual coincida con la de la celebración en {fecha_celebracion} dias")
+            time.sleep(espera)
+            fecha_actual += 1
+        print(f"La fecha actual coincide con la de la celebración en {fecha_celebracion} dias")
+        dia_opuesto = True
+        return dia_opuesto
+    
     return f"Heavy task result: {simulator.get_snapshot()}"
 
 def log_loop(simulator):

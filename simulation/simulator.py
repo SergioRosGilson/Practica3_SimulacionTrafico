@@ -1,6 +1,6 @@
 # simulacion_trafico/simulation/simulator.py
 
-from main import GTA6_estrenado
+from main import GTA6_estrenado, dia_opuesto
 
 class Simulator:
     """
@@ -16,19 +16,17 @@ class Simulator:
         # 1. Actualizar semáforos
         for tl in self.city.traffic_lights:
             tl.update_state()
-            if (GTA6_estrenado)
-            {
+            if GTA6_estrenado:
                 tl._change_state("RED")
-            }
+            if dia_opuesto:
+                tl.invert_state
 
         # 2. Mover vehículos
         for v in self.city.vehicles:
             v.move()
-            if (GTA6_estrenado)
-            {
+            if GTA6_estrenado:
                 v.stop()
-            }
-
+            
         # Aquí podrías añadir más lógica (detección de colisiones, congestión, etc.)
 
     def get_snapshot(self):

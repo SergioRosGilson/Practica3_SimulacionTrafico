@@ -29,6 +29,12 @@ class TrafficLight:
             if self.timer >= self.red_time:
                 self._change_state("GREEN")
 
+    def invert_state(self):
+        if self.current_state == "GREEN":
+            self._change_state("RED")
+        if self.current_state == "RED":
+            self._change_state("GREEN")
+
     def _change_state(self, new_state):
         self.current_state = new_state
         self.timer = 0  # Reiniciamos el temporizador
