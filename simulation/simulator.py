@@ -1,5 +1,7 @@
 # simulacion_trafico/simulation/simulator.py
 
+from main import GTA6_estrenado, dia_opuesto
+
 class Simulator:
     """
     Clase encargada de orquestar las actualizaciones de la ciudad.
@@ -11,8 +13,6 @@ class Simulator:
         """
         Actualiza el estado de todos los elementos de la ciudad en cada 'tick' de la simulación.
         """
-        from main import GTA6_estrenado, dia_opuesto
-        
         # 1. Actualizar semáforos
         for tl in self.city.traffic_lights:
             tl.update_state()
