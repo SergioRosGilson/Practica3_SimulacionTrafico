@@ -28,28 +28,32 @@ def heavy_task_runner(executor, simulator):
     result = executor.submit(lambda: heavy_computation(simulator)).result()
     print(result)
 
+def verificar_estreno_GTA6(estreno, estreno_previsto, espera):
+    GTA6_estrenado = False
+    while estreno_previsto != estreno:
+        print(f"Esperando que el estreno previsto coincida con el estreno en {estreno} dias")
+        time.sleep(espera)
+        estreno_previsto += 1
+    print(f"El estreno previsto coincide con el estreno en {estreno} dias")
+    GTA6_estrenado = True
+    return GTA6_estrenado
+
+def verificar_dia_opuesto(fecha_actual, fecha_celebracion, espera):
+    dia_opuesto = False
+    while fecha_celebracion != fecha_actual:
+        print(f"Esperando que la fecha actual coincida con la de la celebración en {fecha_celebracion} dias")
+        time.sleep(espera)
+        fecha_actual += 1
+    print(f"La fecha actual coincide con la de la celebración en {fecha_celebracion} dias")
+    dia_opuesto = True
+    return dia_opuesto
+
 def heavy_computation(simulator):
     # Simula un cómputo pesado
-    def verificar_estreno_GTA6(estreno, estreno_previsto, espera):
-        GTA6_estrenado = False
-        while estreno_previsto != estreno:
-            print(f"Esperando que el estreno previsto coincida con el estreno en {estreno} dias")
-            time.sleep(espera)
-            estreno_previsto += 1
-        print(f"El estreno previsto coincide con el estreno en {estreno} dias")
-        GTA6_estrenado = True
-        return GTA6_estrenado
-    
-    def verificar_dia_opuesto(fecha_actual, fecha_celebracion, espera):
-        dia_opuesto = False
-        while fecha_celebracion != fecha_actual:
-            print(f"Esperando que la fecha actual coincida con la de la celebración en {fecha_celebracion} dias")
-            time.sleep(espera)
-            fecha_actual += 1
-        print(f"La fecha actual coincide con la de la celebración en {fecha_celebracion} dias")
-        dia_opuesto = True
-        return dia_opuesto
-    
+    verificar_estreno_GTA6(190, 180, 1)
+
+    verificar_dia_opuesto(365, 0, 1)
+
     return f"Heavy task result: {simulator.get_snapshot()}"
 
 def log_loop(simulator):
