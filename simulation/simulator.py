@@ -1,6 +1,7 @@
 # simulacion_trafico/simulation/simulator.py
 
-from main import GTA6_estrenado, dia_opuesto
+GTA6_estrenado = False
+dia_opuesto = False
 
 class Simulator:
     """

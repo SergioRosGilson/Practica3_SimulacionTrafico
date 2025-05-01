@@ -8,7 +8,7 @@ from concurrent.futures import ThreadPoolExecutor
 from environment.City import City
 from environment.Vehicle import Vehicle
 from environment.TrafficLight import TrafficLight
-from simulation.simulator import Simulator
+from simulation.simulator import Simulator, GTA6_estrenado, dia_opuesto
 from concurrency.tasks import simulation_loop
 from concurrency.tasks import run_simulation_tasks
 from ui.gui_pygame import launch_pygame_gui
