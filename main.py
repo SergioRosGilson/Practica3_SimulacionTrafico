@@ -15,13 +15,11 @@ from ui.gui_pygame import launch_pygame_gui
 from distribution.rabbit_client import start_rabbitmq_messaging
 from performance.metrics import log_simulation_state
 
-#En heavy_computation ponemos los calculos de los eventos
-#En run_simulation_tasks iria la función con dichos calculos
-#En main llamamos a las funciones
-
-
 def start_simulation(simulator, interval):
     asyncio.run(simulation_loop(simulator, interval))
+
+def tasks_runner(simulator, interval):
+    asyncio.run(run_simulation_tasks(simulator, interval))
 
 def heavy_task_runner(executor, simulator):
     # Ejecuta una tarea pesada utilizando concurrent.futures
@@ -74,9 +72,12 @@ def main():
     city.add_vehicle(veh2)
     simulator = Simulator(city)
 
-    # 2. Iniciar la simulación en un hilo separado (se ejecuta con asyncio)
+    # 2. Iniciar la simulación en un hilo separado (se ejecuta con asyncio) y sus tareas
     sim_thread = threading.Thread(target=start_simulation, args=(simulator, 0.1), daemon=True)
     sim_thread.start()
+
+    tasks_thread = threading.Thread(target=run_simulation_tasks, daemon=True)
+    tasks_thread.start()
 
     # 3. Iniciar RabbitMQ (mensajería distribuida) en otro hilo
     rabbit_thread = threading.Thread(target=start_rabbitmq_messaging, daemon=True)
