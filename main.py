@@ -62,8 +62,8 @@ def log_loop(simulator):
 def main():
     # 1. Configurar el entorno de simulación
     city = City("Ciudad Ejemplo")
-    tl1 = TrafficLight("T1", green_time=4, yellow_time=1, red_time=3)
-    tl2 = TrafficLight("T2", green_time=5, yellow_time=1, red_time=4)
+    tl1 = TrafficLight("T1", green_time=4, yellow_time=1, red_time=3, position=(100, 100))
+    tl2 = TrafficLight("T2", green_time=5, yellow_time=1, red_time=4, position=(300, 100))
     veh1 = Vehicle("V1", position=(100, 300), speed=2.0, direction="NORTE")
     veh2 = Vehicle("V2", position=(200, 300), speed=3.0, direction="OESTE")
     city.add_traffic_light(tl1)

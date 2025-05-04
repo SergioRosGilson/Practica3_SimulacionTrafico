@@ -4,11 +4,12 @@ class TrafficLight:
     """
     Clase que modela un semáforo con tiempos específicos para cada estado.
     """
-    def __init__(self, id_, green_time=4, yellow_time=1, red_time=3):
+    def __init__(self, id_, green_time=4, yellow_time=1, red_time=3, position=(0, 0)):
         self.id_ = id_
         self.green_time = green_time
         self.yellow_time = yellow_time
         self.red_time = red_time
+        self.position = position
 
         self.current_state = "RED"  # Estado inicial
         self.timer = 0  # Contador interno para el cambio de estado
@@ -40,4 +41,4 @@ class TrafficLight:
         self.timer = 0  # Reiniciamos el temporizador
 
     def __str__(self):
-        return f"TrafficLight {self.id_} - State: {self.current_state}"
+        return f"TrafficLight {self.id_} - State: {self.current_state}, position {self.position}"

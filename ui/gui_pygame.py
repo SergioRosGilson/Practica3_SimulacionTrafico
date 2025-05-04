@@ -37,12 +37,13 @@ def launch_pygame_gui(simulator):
 
         # Dibujar semáforos (se asignan posiciones fijas por ejemplo)
         for tl in simulator.city.traffic_lights:
-            if tl.id_ == "T1":
-                pos = (100, 100)
-            elif tl.id_ == "T2":
-                pos = (300, 100)
-            else:
-                pos = (50, 50)
+            #if tl.id_ == "T1":
+                #pos = (100, 100)
+            #elif tl.id_ == "T2":
+                #pos = (300, 100)
+            #else:
+                #pos = (50, 50)
+            pos = tl.position
             color = get_traffic_light_color(tl.current_state)
             pygame.draw.circle(screen, color, pos, 15)
 
