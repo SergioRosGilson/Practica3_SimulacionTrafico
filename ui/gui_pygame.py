@@ -35,6 +35,12 @@ def launch_pygame_gui(simulator):
         # Actualización de la pantalla
         screen.fill(WHITE)
 
+        # Dibujar distritos
+        for d in simulator.city.districts:
+            x, y = d.position
+            rect = pygame.Rect(x, y, d.width, d.height)
+            pygame.draw.rect(screen, BLACK, rect)
+        
         # Dibujar semáforos (se asignan posiciones fijas por ejemplo)
         for tl in simulator.city.traffic_lights:
             #if tl.id_ == "T1":

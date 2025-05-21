@@ -8,6 +8,7 @@ from concurrent.futures import ThreadPoolExecutor
 from environment.City import City
 from environment.Vehicle import Vehicle
 from environment.TrafficLight import TrafficLight
+from environment.District import District
 from simulation.simulator import Simulator, GTA6_estrenado, dia_opuesto
 from concurrency.tasks import simulation_loop
 from concurrency.tasks import run_simulation_tasks
@@ -66,10 +67,14 @@ def main():
     tl2 = TrafficLight("T2", green_time=5, yellow_time=1, red_time=4, position=(300, 100))
     veh1 = Vehicle("V1", position=(100, 300), speed=2.0, direction="NORTE")
     veh2 = Vehicle("V2", position=(200, 300), speed=3.0, direction="OESTE")
+    d1 = District("D1", position=(50, 50), width = 20, height = 40)
+    d2 = District("D2", position=(120, 200), width = 60, height = 20)
     city.add_traffic_light(tl1)
     city.add_traffic_light(tl2)
     city.add_vehicle(veh1)
     city.add_vehicle(veh2)
+    city.add_district(d1)
+    city.add_district(d2)
     simulator = Simulator(city)
 
     # 2. Iniciar la simulación en un hilo separado (se ejecuta con asyncio) y sus tareas
