@@ -18,6 +18,9 @@ def vehicle_Behaviour():
                     v.stop
                 else:
                     v.move
+        for d in simulator.city.districts:
+            x, y = d.position
+            
 
 def run_simulation_tasks(simulator, update_interval=1.0):
     """
