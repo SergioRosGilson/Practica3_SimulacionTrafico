@@ -1,6 +1,7 @@
 # simulacion_trafico/concurrency/tasks.py
 
 import asyncio
+from distribution.rabbit_client import send_message
 
 async def simulation_loop(simulator, interval):
     """
@@ -20,6 +21,8 @@ def vehicle_Behaviour():
                     v.move
         for d in simulator.city.districts:
             x, y = d.position
+            if v.position > x and v.position < x + d.width and v.position > y and v.position < y + d.height:
+                send_message()
             
 
 def run_simulation_tasks(simulator, update_interval=1.0):
