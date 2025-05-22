@@ -37,7 +37,7 @@ class Simulator:
         """
         lights_info = [str(tl) for tl in self.city.traffic_lights]
         vehicles_info = [str(v) for v in self.city.vehicles]
-        districts_info = [str(v) for d in self.city.districts]
+        districts_info = [str(d) for d in self.city.districts]
         return {
             "traffic_lights": lights_info,
             "vehicles": vehicles_info,

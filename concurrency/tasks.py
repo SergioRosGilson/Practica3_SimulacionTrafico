@@ -11,7 +11,7 @@ async def simulation_loop(simulator, interval):
         simulator.update()
         await asyncio.sleep(interval)
 
-def vehicle_Behaviour():
+def vehicle_Behaviour(simulator):
     for v in simulator.city.vehicles:
         for tl in simulator.city.traffic_lights:
             if tl.current_state == "RED":
@@ -31,6 +31,6 @@ def run_simulation_tasks(simulator, update_interval=1.0):
     - Bucle de actualización de la ciudad
     - En un caso complejo, aquí se podrían añadir más tareas.
     """
-    tasks = [asyncio.create_task(vehicle_Behaviour())]
+    tasks = [asyncio.create_task(vehicle_Behaviour(simulator))]
     tasks.append(asyncio.create_task(simulation_loop(simulator, update_interval)))
     return tasks
